@@ -22,17 +22,9 @@ freely, subject to the following restrictions:
    distribution.
 */
 
-#include <atomic>
-#include <string.h>
+#if !defined(WITH_VITA_HOMEBREW)
 
 #include "soloud.h"
-#include "soloud_thread.h"
-
-#include <psp2/audioout.h>
-#include <psp2/kernel/threadmgr.h>
-#include <stdio.h>
-
-#if !defined(WITH_VITA_HOMEBREW)
 
 namespace SoLoud
 {
@@ -43,6 +35,16 @@ namespace SoLoud
 };
 
 #else
+
+#include <atomic>
+#include <string.h>
+
+#include "soloud.h"
+#include "soloud_thread.h"
+
+#include <psp2/audioout.h>
+#include <psp2/kernel/threadmgr.h>
+#include <stdio.h>
 
 namespace SoLoud
 {
